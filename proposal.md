@@ -1,42 +1,39 @@
 # random-character-generator
-### PFDA Final Project
+PFDA Final Project
 
 ## Repository
-<Link to your project's public GitHub respository>
+https://github.com/lapikale/random-character-generator.git
 
 ## Description
-1-2 sentence description of what it will do and how it relevant to media and digital arts.
+This program will generate a random character and draw images onto a screen every time the program is run. It will be a fun little random character generating game.
 
 ## Features
 - Feature 1
-	- Short explaination of how it will be executed.
+	- A set of images for a head, a torso, and legs will be provided.
 - Feature 2
-	- Short explaination of how it will be executed.
+	- Code will pick a random image for each body part.
 - Feature N 
-	- Short explaination of how it will be executed.
+	- Body parts will be drawn to a screen in the right position when the program is run.
 
 ## Challenges
-- Short sentence of any skill or topic that needs to be learnt or researched.
-- Short sentence of any skill or topic that needs to be learnt or researched.
-- Short sentence of any skill or topic that needs to be learnt or researched.
+- Accessing a list of images.
+- Picking a random image from a list of images.
+- Drawing the image at a specific position.
 
 ## Outcomes
 Ideal Outcome:
-- Briefly describe what is the ideal outcome?
+- A new randomized character will be drawn to the screen each time the program is run.
 
 Minimal Viable Outcome:
-- Briefly describe the bare essential for a good working outcome?
+- Something is drawn on a screen.
 
 ## Milestones
 
 - Week 1
-  1. Goal 1
-  2. Goal 2
+  1. Planning each aspect of the program.
 
 - Week 2
-  1. Goal 1
-  2. Goal 2
+  1. Drawing the images for the list.
 
 - Week N (Final)
-  1. Goal 1
-  2. Goal 2
+  1. Writing the code.
