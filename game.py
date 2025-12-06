@@ -9,9 +9,9 @@ pygame.display.set_caption('Make Your Character!')
 running = True
 
 #add bg
-bg_image = pygame.image.load('bg.png ')
+bg_image = pygame.image.load('PFDA Final Images/bg.png')
 bg_image_rect = bg_image.get_rect()
-bg_image_rect.topleft(0,0)
+bg_image_rect.topleft = (0,0)
 
 while running:
     for event in pygame.event.get(): 
@@ -19,7 +19,7 @@ while running:
             running = False
 
     #adding bg to screen
-    display_surface.blit(bg_image, bg_image_rect)
+    screen.blit(bg_image, bg_image_rect)
 
     pygame.display.flip() 
 
