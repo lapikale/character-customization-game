@@ -1,31 +1,31 @@
-# random-character-generator
+# character-customization-game
 PFDA Final Project
 
 ## Repository
-https://github.com/lapikale/random-character-generator.git
+https://github.com/lapikale/character-customization-game.git
 
 ## Description
-This program will generate a random character and draw images onto a screen every time the program is run. It will be a fun little random character generating game.
+This program will allow you to cycle through different character designs with arrows to make your own character.
 
 ## Features
 - Feature 1
-	- A set of images for a head, a torso, and legs will be provided.
+	- A set of images for a head, a torso, legs, and skin will be provided.
 - Feature 2
-	- Code will pick a random image for each body part.
+	- Code will display a selected body parts that can be changed by cycling through the list of body parts.
 - Feature N 
-	- Body parts will be drawn to a screen in the right position when the program is run.
+	- Background and character will be drawn to a screen in the right position when the program is run. Game will be interactable.
 
 ## Challenges
 - Accessing a list of images.
-- Picking a random image from a list of images.
-- Drawing the image at a specific position.
+- Adding logic to arrows to cycle through the list and display chosen image.
+- Drawing everything to a screen.
 
 ## Outcomes
 Ideal Outcome:
-- A new randomized character will be drawn to the screen each time the program is run.
+- Character features can be displayed on a screen and cycled through with arrows on a screen. Game functions.
 
 Minimal Viable Outcome:
-- Something is drawn on a screen.
+- Background and character is drawn on the screen even if the gameplay doesn't work.
 
 ## Milestones
 
