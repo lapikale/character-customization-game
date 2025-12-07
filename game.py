@@ -13,6 +13,11 @@ bg_image = pygame.image.load('PFDA Final Images/bg.png')
 bg_image_rect = bg_image.get_rect()
 bg_image_rect.topleft = (0,0)
 
+#testing adding images
+skin01 = pygame.image.load('PFDA Final Images/skin01.png').convert_alpha() 
+skin01_rect = skin01.get_rect()
+skin01_rect.topleft = (0,0)
+
 while running:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
@@ -20,6 +25,7 @@ while running:
 
     #adding bg to screen
     screen.blit(bg_image, bg_image_rect)
+    screen.blit(skin01, skin01_rect)
 
     pygame.display.flip() 
 
