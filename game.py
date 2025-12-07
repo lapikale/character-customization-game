@@ -22,28 +22,17 @@ bg_image_rect.topleft = (0,0)
 
 class Skin:
     def __init__(self):
-        skin01 = pygame.image.load('PFDA Final Images/skin01.png').convert_alpha()
-        skin02 = pygame.image.load('PFDA Final Images/skin02.png').convert_alpha()
-        skin03 = pygame.image.load('PFDA Final Images/skin03.png').convert_alpha()
-        skin01_rect = skin01.get_rect()
-        skin02_rect = skin02.get_rect()
-        skin03_rect = skin03.get_rect()
-        skin01_rect.topleft = (0,0)
-        skin02_rect.topleft = (0,0)
-        skin03_rect.topleft = (0,0)
-        self.images = [skin01, skin02, skin03]
-        self.image_rects = [skin01_rect, skin02_rect, skin03_rect]
-
-        #self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
-        #for image in enumerate(range(len(self.images))):
-            #self.images.append(pygame.image.load(self.image_list).convert_alpha)
-            #images_rect = self.images.get_rect()
-            #images_rect.topleft = (0,0)
+        self.images = []
+        self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
+        for image in enumerate(range(len(self.images))):
+            self.images.append(pygame.image.load(self.image_list).convert_alpha)
+            images_rect = self.images.get_rect()
+            images_rect.topleft = (0,0)
             
 
     def draw(self, screen):
-        for i in self.images and self.image_rects:
-            screen.blit(self.images, self.image_rects)
+        for i in self.images:
+            screen.blit(self.images, (0,0))
 
 
 while running:
@@ -66,8 +55,8 @@ while running:
     #screen.blit(skin01, skin01_rect)
 
     #adding a surface
-    surf = pygame.Surface((720, 576))
-    screen.blit(surf, (0,0))
+    #surf = pygame.Surface((720, 576))
+    #screen.blit(surf, (0,0))
 
     #instancing object
     skin = Skin()
