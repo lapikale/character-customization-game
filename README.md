@@ -1,3 +1,5 @@
+In a magical land fully of all sorts of mystical creatures, you can be whatever you want!
+
 This project is a character customization game in which you can switch out certain features of the character on screen with the arrows provided! 
 You can choose to switch between 3 different options provided for the character's skin tone, head, top, and legs! Exciting!
 
