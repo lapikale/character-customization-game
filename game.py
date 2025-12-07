@@ -18,18 +18,35 @@ skin01 = pygame.image.load('PFDA Final Images/skin01.png').convert_alpha()
 skin01_rect = skin01.get_rect()
 skin01_rect.topleft = (0,0)
 
-show_image = True
+#show_image = True
+
+class Skin:
+    def __init__(self):
+        self.images = []
+        self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
+        for i in range(len(self.image_list)):
+            self.images.append(pygame.image.load(i).convert_alpha)
+            
+
+    def draw(self, screen):
+        self.background = pygame.Surface(720, 576)
+        for i in self.images:
+            screen.blit(i, (0, 0))
+
 
 while running:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
+            
+    #image visibility toggle
         #if event.type == pygame.KEYDOWN:
             #if event.key == pygame.K_SPACE:
                 #show_image = not show_image
-        #replacing images
-        if event.type == pygame.KEYDOWN and event.skin01 == 1:
-            skin_1 = new_skin_1
+
+    #replace image with new image?
+        #if event.type == pygame.KEYDOWN and event.skin01 == 1:
+            #skin_1 = new_skin_1
 
 
     #adding bg to screen
