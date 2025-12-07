@@ -1,8 +1,10 @@
 # Make Your Character!
 
 ## Demo
+Demo Video:
 
 ## Github Repository
+Github Repo:
 
 ## Description
 

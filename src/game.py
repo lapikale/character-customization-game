@@ -22,6 +22,7 @@ bg_image_rect.topleft = (0,0)
 
 class Skin:
     def __init__(self):
+        #load images in a list
         self.images = []
         self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
         for image in enumerate(range(len(self.images))):
@@ -31,6 +32,8 @@ class Skin:
             
 
     def draw(self, screen):
+        #draw images onto screen
+        #toggle image visibility when selected
         for i in self.images:
             screen.blit(self.images, (0,0))
 
