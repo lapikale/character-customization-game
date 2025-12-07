@@ -1,3 +1,11 @@
+# Make Your Character!
+
+## Demo
+
+## Github Repository
+
+## Description
+
 In a magical land fully of all sorts of mystical creatures, you can be whatever you want!
 
 This project is a character customization game in which you can switch out certain features of the character on screen with the arrows provided! 
