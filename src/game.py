@@ -24,9 +24,9 @@ class Skin:
     def __init__(self):
         #load images in a list
         self.images = []
-        self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
-        for image in enumerate(range(len(self.images))):
-            self.images.append(pygame.image.load(self.image_list).convert_alpha)
+        self.image_files = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
+        for image in range(len(self.images)):
+            self.images.append(pygame.image.load(self.image_files).convert_alpha)
             images_rect = self.images.get_rect()
             images_rect.topleft = (0,0)
             
