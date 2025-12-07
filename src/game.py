@@ -29,12 +29,18 @@ class Skin:
             self.images.append(pygame.image.load(self.image_files).convert_alpha)
             images_rect = self.images.get_rect()
             images_rect.topleft = (0,0)
+        self.surface = self.update_surface()
+
+    def update_surface(self):
+        #adding a surface
+        surf = pygame.Surface((720, 576))
+        return surf
             
 
     def draw(self, screen):
         #draw images onto screen
         #toggle image visibility when selected
-        for i in self.images:
+        for image in self.images:
             screen.blit(self.images, (0,0))
 
 
@@ -56,10 +62,6 @@ while running:
     #adding bg to screen
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
-
-    #adding a surface
-    #surf = pygame.Surface((720, 576))
-    #screen.blit(surf, (0,0))
 
     #instancing object
     skin = Skin()
