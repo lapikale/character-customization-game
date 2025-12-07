@@ -24,12 +24,13 @@ class Skin:
     def __init__(self):
         self.images = []
         self.image_list = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
-        for i in range(len(self.image_list)):
-            self.images.append(pygame.image.load(i).convert_alpha)
+        for image in enumerate(range(len(self.image_list))):
+            self.images.append(pygame.image.load(self.image_list).convert_alpha)
+            images_rect = self.images.get_rect()
+            images_rect.topleft = (0,0)
             
 
     def draw(self, screen):
-        self.background = pygame.Surface(720, 576)
         for i in self.images:
             screen.blit(i, (0, 0))
 
@@ -53,10 +54,18 @@ while running:
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
 
+    #adding a surface
+    surf = pygame.Surface((720, 576))
+    screen.blit(surf, (0,0))
+
+    #instancing object
+    skin = Skin()
+
     #if show_image:
         #screen.blit(skin01, skin01_rect)
 
     pygame.display.flip() 
+    pygame.display.update()
 
 
 pygame.quit() 
