@@ -24,16 +24,20 @@ while running:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                show_image = not show_image
+        #if event.type == pygame.KEYDOWN:
+            #if event.key == pygame.K_SPACE:
+                #show_image = not show_image
+        #replacing images
+        if event.type == pygame.KEYDOWN and event.skin01 == 1:
+            skin_1 = new_skin_1
+
 
     #adding bg to screen
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
 
-    if show_image:
-        screen.blit(skin01, skin01_rect)
+    #if show_image:
+        #screen.blit(skin01, skin01_rect)
 
     pygame.display.flip() 
 
