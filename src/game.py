@@ -20,16 +20,17 @@ bg_image_rect.topleft = (0,0)
 
 #show_image = True
 
-class Skin:
+class Head:
     def __init__(self):
         #load images in a list
         self.pos = (0,0)
-        #self.images = []
-        image_files = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
-        self.images = [pygame.image.load(path).convert_alpha() for path in image_files]
+        self.images = []
+        image_files = ['PFDA Final Images/head01.png', 'PFDA Final Images/head02.png', 'PFDA Final Images/head03.png']
+        for path in image_files:
+            self.images.append(pygame.image.load(path).convert_alpha())
         self.current_image_index = 0
         self.image = self.images[self.current_image_index]
-        self.rect = self.image.get_rect(topleft = self.pos)
+        self.rect = self.image.get_rect(topleft = (self.pos))
         
         #for image in range(len(self.images)):
             #self.images.append(pygame.image.load(self.image_files).convert_alpha)
@@ -52,23 +53,25 @@ class Skin:
     def set_image_by_index(self, index):
         if 0 <= index < len(self.images):
             self.current_image_index = index
-            self.image = self.images[self.current_image_index]
+            self.rect = self.images[self.current_image_index].get_rect(topleft = self.rect.topleft)
     
 
 while running:
     #instancing object
-    skin = Skin()
+    head = Head()
 
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
+        
         #changing image with key press
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                next_index = (skin.current_image_index + 1) % len(skin.images)
-                skin.set_image_by_index(next_index)
+                next_index = (head.current_image_index + 1) % len(head.images)
+                head.set_image_by_index(next_index)
             elif event.key == pygame.K_LEFT:
-                prev_index = (skin.current_image_index - 1 + len(skin.images)) % len (skin.images)
+                prev_index = (head.current_image_index - 1 + len(head.images)) % len (head.images)
+                head.set_image_by_index(prev_index)
             
     #image visibility toggle
         #if event.type == pygame.KEYDOWN:
@@ -84,7 +87,7 @@ while running:
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
 
-    skin.draw(screen)
+    head.draw(screen)
 
     #if show_image:
         #screen.blit(skin01, skin01_rect)
