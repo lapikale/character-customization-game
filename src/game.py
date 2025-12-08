@@ -160,6 +160,7 @@ top = Top()
 legs = Legs()
 
 
+#game loop
 while running:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
