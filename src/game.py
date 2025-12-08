@@ -13,6 +13,23 @@ bg_image = pygame.image.load('PFDA Final Images/bg.png')
 bg_image_rect = bg_image.get_rect()
 bg_image_rect.topleft = (0,0)
 
+#load button images
+right_arrow = pygame.image.load('PFDA Final Images/arrow_right.png').convert_alpha()
+left_arrow = pygame.image.load('PFDA Final Images/arrow_left.png').convert_alpha()
+
+class Button:
+    def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x,y)
+
+    def draw(self):
+        screen.blit(self.image, (self.rect.x, self.rect.y))
+
+#button instances
+right_button = Button(50, 200, right_arrow)
+left_button = Button(-50, 200, left_arrow)
+
 
 class Head:
     def __init__(self):
@@ -167,6 +184,10 @@ while running:
     head.draw(screen)
     legs.draw(screen)
     top.draw(screen)
+
+    #drawing buttons to screen
+    right_button.draw()
+    left_button.draw()
 
     pygame.display.flip() 
     pygame.display.update()
