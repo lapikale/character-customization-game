@@ -166,7 +166,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         
-        #changing image with key press
+        #changing image with mouse button click
         #head
         if right_button_head.draw():
             next_index = (head.current_image_index + 1) % len(head.images)
@@ -197,7 +197,7 @@ while running:
             legs.set_image_by_index(prev_index)
 
 
-    #adding bg to screen
+    #blitting bg to screen
     screen.blit(bg_image, bg_image_rect)
 
     #drawing body parts to screen
