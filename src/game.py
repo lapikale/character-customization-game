@@ -23,25 +23,37 @@ bg_image_rect.topleft = (0,0)
 class Skin:
     def __init__(self):
         #load images in a list
-        self.images = []
-        self.image_files = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
-        for image in range(len(self.images)):
-            self.images.append(pygame.image.load(self.image_files).convert_alpha)
-            images_rect = self.images.get_rect()
-            images_rect.topleft = (0,0)
-        self.surface = self.update_surface()
+        self.pos = (0,0)
+        #self.images = []
+        image_files = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
+        self.images = [pygame.image.load(path).convert_alpha() for path in image_files]
+        self.current_image_index = 0
+        self.image = self.images[self.current_image_index]
+        self.rect = self.image.get_rect(topleft = self.pos)
+        
+        #for image in range(len(self.images)):
+            #self.images.append(pygame.image.load(self.image_files).convert_alpha)
+            #images_rect = self.images.get_rect()
+        #self.surface = self.update_surface()
 
-    def update_surface(self):
+    def surface(self):
         #adding a surface
         surf = pygame.Surface((720, 576))
         return surf
             
 
-    def draw(self, screen):
+    def draw(self, surface):
         #draw images onto screen
         #toggle image visibility when selected
-        for image in self.images:
-            screen.blit(self.images, (0,0))
+        #for image in self.images:
+            #surf.draw(self.images, self.pos)
+        surface.blit(self.image, self.rect)
+
+    def set_image_by_index(self, index):
+        if 0 <= index < len(self.images):
+            self.current_image_index = index
+            self.image = self.images[self.current_image_index]
+        
 
 
 while running:
