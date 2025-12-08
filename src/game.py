@@ -28,11 +28,6 @@ class Head:
         self.current_image_index = 0
         self.image = self.images[self.current_image_index]
         self.rect = self.image.get_rect(topleft = (self.pos))
-        
-        #for image in range(len(self.images)):
-            #self.images.append(pygame.image.load(self.image_files).convert_alpha)
-            #images_rect = self.images.get_rect()
-        #self.surface = self.update_surface()
 
     def surface(self):
         #adding a surface
@@ -51,25 +46,65 @@ class Head:
         if 0 <= index < len(self.images):
             self.current_image_index = index
             self.image = self.images[self.current_image_index]
-            self. rect = self.image.get_rect(topleft = (self.pos))
+            self.rect = self.image.get_rect(topleft = (self.pos))
+
+class Top:
+    def __init__(self):
+        self.pos = (0,0)
+        image_paths = ['PFDA Final Images/top01.png', 'PFDA Final Images/top02.png', 'PFDA Final Images/top03.png']
+        self.images = [pygame.image.load(path).convert_alpha() for path in image_paths]
+        self.current_image_index = 0
+        self.image = self.images[self.current_image_index]
+        self.rect = self.image.get_rect(topleft = (self.pos))
+
+    def surface(self):
+        #adding a surface
+        surf = pygame.Surface((720, 576))
+        return surf
+        
+    def draw(self, surface):
+        #draw images onto screen
+        #toggle image visibility when selected
+        #for image in self.images:
+            #surf.draw(self.images, self.pos)
+        surface.blit(self.image, self.rect)
+
+    def set_image_by_index(self, index):
+        if 0 <= index < len(self.images):
+            self.current_image_index = index
+            self.image = self.images[self.current_image_index]
+            self.rect = self.image.get_rect(topleft = (self.pos))
     
+    
+#instancing objects
+head = Head()
+top = Top()
 
 while running:
-    #instancing objects
-    head = Head()
+    
 
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
         
         #changing image with key press
-        elif event.type == pygame.KEYDOWN:
+        #head
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
                 next_index = (head.current_image_index + 1) % len(head.images)
                 head.set_image_by_index(next_index)
             elif event.key == pygame.K_LEFT:
                 prev_index = (head.current_image_index - 1 + len(head.images)) % len(head.images)
                 head.set_image_by_index(prev_index)
+        #top
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                next_index = (top.current_image_index + 1) % len(top.images)
+                top.set_image_by_index(next_index)
+            elif event.key == pygame.K_LEFT:
+                prev_index = (top.current_image_index - 1 + len(top.images)) % len(top.images)
+                top.set_image_by_index(prev_index)
+        
             
     #image visibility toggle
         #if event.type == pygame.KEYDOWN:
@@ -86,6 +121,7 @@ while running:
     #screen.blit(skin01, skin01_rect)
 
     head.draw(screen)
+    top.draw(screen)
 
     #if show_image:
         #screen.blit(skin01, skin01_rect)
