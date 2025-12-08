@@ -13,12 +13,6 @@ bg_image = pygame.image.load('PFDA Final Images/bg.png')
 bg_image_rect = bg_image.get_rect()
 bg_image_rect.topleft = (0,0)
 
-#testing adding images
-#skin01 = pygame.image.load('PFDA Final Images/skin01.png').convert_alpha() 
-#skin01_rect = skin01.get_rect()
-#skin01_rect.topleft = (0,0)
-
-#show_image = True
 
 class Head:
     def __init__(self):
@@ -37,9 +31,6 @@ class Head:
 
     def draw(self, surface):
         #draw images onto screen
-        #toggle image visibility when selected
-        #for image in self.images:
-            #surf.draw(self.images, self.pos)
         surface.blit(self.image, self.rect)
 
     def set_image_by_index(self, index):
@@ -64,9 +55,6 @@ class Top:
         
     def draw(self, surface):
         #draw images onto screen
-        #toggle image visibility when selected
-        #for image in self.images:
-            #surf.draw(self.images, self.pos)
         surface.blit(self.image, self.rect)
 
     def set_image_by_index(self, index):
@@ -91,9 +79,6 @@ class Legs:
         
     def draw(self, surface):
         #draw images onto screen
-        #toggle image visibility when selected
-        #for image in self.images:
-            #surf.draw(self.images, self.pos)
         surface.blit(self.image, self.rect)
 
     def set_image_by_index(self, index):
@@ -118,9 +103,6 @@ class Skin:
         
     def draw(self, surface):
         #draw images onto screen
-        #toggle image visibility when selected
-        #for image in self.images:
-            #surf.draw(self.images, self.pos)
         surface.blit(self.image, self.rect)
 
     def set_image_by_index(self, index):
@@ -138,8 +120,6 @@ legs = Legs()
 
 
 while running:
-    
-
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
@@ -177,29 +157,16 @@ while running:
             elif event.key == pygame.K_LEFT:
                 prev_index = (legs.current_image_index - 1 + len(legs.images)) % len(legs.images)
                 legs.set_image_by_index(prev_index)
-        
-            
-    #image visibility toggle
-        #if event.type == pygame.KEYDOWN:
-            #if event.key == pygame.K_SPACE:
-                #show_image = not show_image
-
-    #replace image with new image?
-        #if event.type == pygame.KEYDOWN and event.skin01 == 1:
-            #skin_1 = new_skin_1
 
 
     #adding bg to screen
     screen.blit(bg_image, bg_image_rect)
-    #screen.blit(skin01, skin01_rect)
 
+    #drawing body parts to screen
     skin.draw(screen)
     head.draw(screen)
     legs.draw(screen)
     top.draw(screen)
-
-    #if show_image:
-        #screen.blit(skin01, skin01_rect)
 
     pygame.display.flip() 
     pygame.display.update()
