@@ -53,13 +53,22 @@ class Skin:
         if 0 <= index < len(self.images):
             self.current_image_index = index
             self.image = self.images[self.current_image_index]
-        
-
+    
 
 while running:
+    #instancing object
+    skin = Skin()
+
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
             running = False
+        #changing image with key press
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                next_index = (skin.current_image_index + 1) % len(skin.images)
+                skin.set_image_by_index(next_index)
+            elif event.key == pygame.K_LEFT:
+                prev_index = (skin.current_image_index - 1 + len(skin.images)) % len (skin.images)
             
     #image visibility toggle
         #if event.type == pygame.KEYDOWN:
@@ -75,8 +84,7 @@ while running:
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
 
-    #instancing object
-    skin = Skin()
+    skin.draw(screen)
 
     #if show_image:
         #screen.blit(skin01, skin01_rect)
