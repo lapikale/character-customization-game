@@ -74,11 +74,68 @@ class Top:
             self.current_image_index = index
             self.image = self.images[self.current_image_index]
             self.rect = self.image.get_rect(topleft = (self.pos))
+
+class Legs:
+    def __init__(self):
+        self.pos = (0,0)
+        image_paths = ['PFDA Final Images/legs01.png', 'PFDA Final Images/legs02.png', 'PFDA Final Images/legs03.png']
+        self.images = [pygame.image.load(path).convert_alpha() for path in image_paths]
+        self.current_image_index = 0
+        self.image = self.images[self.current_image_index]
+        self.rect = self.image.get_rect(topleft = (self.pos))
+
+    def surface(self):
+        #adding a surface
+        surf = pygame.Surface((720, 576))
+        return surf
+        
+    def draw(self, surface):
+        #draw images onto screen
+        #toggle image visibility when selected
+        #for image in self.images:
+            #surf.draw(self.images, self.pos)
+        surface.blit(self.image, self.rect)
+
+    def set_image_by_index(self, index):
+        if 0 <= index < len(self.images):
+            self.current_image_index = index
+            self.image = self.images[self.current_image_index]
+            self.rect = self.image.get_rect(topleft = (self.pos))
+
+class Skin:
+    def __init__(self):
+        self.pos = (0,0)
+        image_paths = ['PFDA Final Images/skin01.png', 'PFDA Final Images/skin02.png', 'PFDA Final Images/skin03.png']
+        self.images = [pygame.image.load(path).convert_alpha() for path in image_paths]
+        self.current_image_index = 0
+        self.image = self.images[self.current_image_index]
+        self.rect = self.image.get_rect(topleft = (self.pos))
+
+    def surface(self):
+        #adding a surface
+        surf = pygame.Surface((720, 576))
+        return surf
+        
+    def draw(self, surface):
+        #draw images onto screen
+        #toggle image visibility when selected
+        #for image in self.images:
+            #surf.draw(self.images, self.pos)
+        surface.blit(self.image, self.rect)
+
+    def set_image_by_index(self, index):
+        if 0 <= index < len(self.images):
+            self.current_image_index = index
+            self.image = self.images[self.current_image_index]
+            self.rect = self.image.get_rect(topleft = (self.pos))
     
     
 #instancing objects
+skin = Skin()
 head = Head()
 top = Top()
+legs = Legs()
+
 
 while running:
     
@@ -104,6 +161,22 @@ while running:
             elif event.key == pygame.K_LEFT:
                 prev_index = (top.current_image_index - 1 + len(top.images)) % len(top.images)
                 top.set_image_by_index(prev_index)
+        #skin
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                next_index = (skin.current_image_index + 1) % len(skin.images)
+                skin.set_image_by_index(next_index)
+            elif event.key == pygame.K_LEFT:
+                prev_index = (skin.current_image_index - 1 + len(skin.images)) % len(skin.images)
+                skin.set_image_by_index(prev_index)
+        #legs
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                next_index = (legs.current_image_index + 1) % len(legs.images)
+                legs.set_image_by_index(next_index)
+            elif event.key == pygame.K_LEFT:
+                prev_index = (legs.current_image_index - 1 + len(legs.images)) % len(legs.images)
+                legs.set_image_by_index(prev_index)
         
             
     #image visibility toggle
@@ -120,7 +193,9 @@ while running:
     screen.blit(bg_image, bg_image_rect)
     #screen.blit(skin01, skin01_rect)
 
+    skin.draw(screen)
     head.draw(screen)
+    legs.draw(screen)
     top.draw(screen)
 
     #if show_image:
