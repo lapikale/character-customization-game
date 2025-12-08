@@ -16,7 +16,7 @@ This program will allow you to cycle through different character designs with ar
 	- Background and character will be drawn to a screen in the right position when the program is run. Game will be interactable.
 
 ## Challenges
-- Accessing a list of images.
+- Accessing and iterating one by one through a list of images.
 - Adding logic to arrows to cycle through the list and display chosen image.
 - Drawing everything to a screen.
 
