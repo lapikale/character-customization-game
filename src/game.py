@@ -174,18 +174,18 @@ while running:
                 top.set_image_by_index(prev_index)
         #skin
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
+            if event.button == 0:
                 next_index = (skin.current_image_index + 1) % len(skin.images)
                 skin.set_image_by_index(next_index)
-            elif event.key == pygame.K_LEFT:
+            elif event.button == 0:
                 prev_index = (skin.current_image_index - 1 + len(skin.images)) % len(skin.images)
                 skin.set_image_by_index(prev_index)
         #legs
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
                 next_index = (legs.current_image_index + 1) % len(legs.images)
                 legs.set_image_by_index(next_index)
-            elif event.button == 1:
+            elif event.key == pygame.K_LEFT:
                 prev_index = (legs.current_image_index - 1 + len(legs.images)) % len(legs.images)
                 legs.set_image_by_index(prev_index)
 
@@ -200,10 +200,10 @@ while running:
     top.draw(screen)
 
     #drawing buttons to screen
-    if right_button_skin.draw():
-        print('RIGHT')
-    if left_button_skin.draw():
-        print('LEFT')
+    right_button_skin.draw()
+        #print('RIGHT')
+    left_button_skin.draw()
+        #print('LEFT')
 
     pygame.display.flip() 
     pygame.display.update()
