@@ -41,8 +41,8 @@ class Button:
         return action
 
 #button instances
-right_button = Button(50, -50, right_arrow)
-left_button = Button(-50, -50, left_arrow)
+right_button = Button(580, 50, right_arrow)
+left_button = Button(100, 50, left_arrow)
 
 
 class Head:
